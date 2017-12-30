@@ -1,0 +1,31 @@
+<div class="card col" data-taskid="{{ card.id }}" data-status="{{ card.status }}" >
+    <div class="card-block">
+        <p class="task-id">
+            <span>
+                {{ card.id }}
+            </span>
+            <img class="edit-icon edit-task"
+                 src="https://image.flaticon.com/icons/svg/61/61456.svg"
+                 data-taskid="{{ card.id }}" data-toggle="modal"
+                 data-target="#add-task" alt="Edit Task!"
+                 ng-click="updatecardmodal(card.id);"/>
+            <img
+                    class="bin-icon delete-task"
+                    src="http://www.free-icons-download.net/images/empty--recycle-bin-icon-27617.png"
+                    alt="Delete Task!"
+                    data-taskid="{{ card.id }}"
+                    ng-click="$parent.deletecard(card.id);"/>
+        </p>
+        <h4 class="card-title text-primary">{{ card.name }}</h4>
+        <p class="card-text">{{ card.description }}</p>
+        <div id="{{ card.id }}">Users</div>
+        <div class="card-footer task-users" dragula='"bag-user"' dragula-scope="$parent.$parent" data-taskid="{{ card.id }}">
+            <img ng-repeat="user in card.usersList" class="users"
+                 data-userid="{{ user.id }}"
+                 alt="{{ user.username }}"
+                 ng-src="{{ user.pictureUrl }}"
+                 ng-click="deleteuserfromcard(card.id, user.id);"
+            />
+        </div>
+    </div>
+</div>

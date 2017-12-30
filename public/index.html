@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet"/>
+    <link href="components/app.css" rel="stylesheet"/>
+
+    <!-- Include the AngularJS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-dragula/1.2.8/dragula.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-dragula/1.2.8/angular-dragula.js"></script>
+
+    <script src="scripts/learningpaths.js"></script>
+
+</head>
+<body ng-app="myApp" class="container" ng-controller="MainController" onload="learningPaths(this);">
+
+    <div>
+        <div id="header-title">
+            <h1 class="page-header">
+                Kanban-manager
+            </h1>
+            <div class="dropdown">
+                <button class="btn btn-success btn-lg " type="button" data-toggle="dropdown" id="add-button">+</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#add-user" id="open-user-modal">Add
+                        User</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#add-task">Add Task</a>
+                </div>
+            </div>
+        </div>
+        <!--  USERS -->
+        <div class="row users-container" id='users' dragula='"bag-user"'>
+            <user-directive ng-repeat="user in userList" user="user" ng-click="updateUserModal(user.id)" ></user-directive>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-header">
+            <h4 class="h4">New</h4>
+        </div>
+        <div class="col in-progress col-header">
+            <h4 class="h4">In-progress</h4>
+        </div>
+        <div class="col in-review col-header">
+            <h4 class="h4">In-review</h4>
+        </div>
+        <div class="col in-pm-review col-header">
+            <h4 class="h4">In-pm-review</h4>
+        </div>
+        <div class="col completed col-header">
+            <h4 class="h4">Completed</h4>
+        </div>
+    </div>   <!--ROW-1 -->
+
+    <!--CARDS-->
+    <div class="row" id="row-header">
+        <!-- NEW -->
+        <div class="col" id="new-status" dragula='"bag-card"'>
+            <card-directive ng-repeat="card in cardList | filter: {status: 'new-status'}"
+                            card="card" updatecardmodal="updatecardmodal" deleteuserfromcard="deleteuserfromcard">
+            </card-directive>
+        </div>
+        <!-- IN-PROGRESS -->
+        <div class="col" id="in-progress-status" dragula='"bag-card"'>
+            <card-directive ng-repeat="card in cardList | filter: {status: 'in-progress-status'}"
+                            card="card" updatecardmodal="updatecardmodal" deleteuserfromcard="deleteuserfromcard">
+            </card-directive>
+        </div>
+        <!-- IN-REVIEW -->
+        <div class="col" id="in-review-status" dragula='"bag-card"'>
+            <card-directive ng-repeat="card in cardList | filter: {status: 'in-review-status'}"
+                            card="card" updatecardmodal="updatecardmodal" deleteuserfromcard="deleteuserfromcard">
+            </card-directive>
+        </div>
+        <!-- IN-PM-REVIEW -->
+        <div class="col" id="in-pm-review-status" dragula='"bag-card"'>
+            <card-directive ng-repeat="card in cardList | filter: {status: 'in-pm-review-status'}"
+                            card="card" updatecardmodal="updatecardmodal" deleteuserfromcard="deleteuserfromcard">
+            </card-directive>
+        </div>
+        <!-- COMPLETED -->
+        <div class="col" id="completed-status" dragula='"bag-card"'>
+            <card-directive ng-repeat="card in cardList | filter: {status: 'completed-status'}"
+                            card="card" updatecardmodal="updatecardmodal" deleteuserfromcard="deleteuserfromcard">
+            </card-directive>
+        </div>
+    </div>
+
+    <!--Card modal directive-->
+    <card-modal-directive savecard="savecard" clearcardmodal="clearcardmodal" deletecard="deletecard"></card-modal-directive>
+
+    <!--User modal directive -->
+    <user-modal-directive></user-modal-directive>
+
+    <!-- Modules -->
+    <script src="kanban-app.js"></script>
+
+    <!-- Controllers -->
+    <script src="components/MainController.js"></script>
+
+    <!--DB-SERVICE-->
+    <script src="components/db-service/db-service.js"></script>
+    <script src="components/db-service/user-model.js"></script>
+    <script src="components/db-service/card-model.js"></script>
+
+    <!--Cards service-->
+    <script src="components/card/card-service/card-service.js"></script>
+
+    <!--Card-directive-->
+    <script src="components/card/card-component/card-directive.js"></script>
+
+    <!--Card modal directive-->
+    <script src="components/card/card-modal-directive/card-modal-directive.js"></script>
+
+    <!--Card modal service-->
+    <script src="components/card/card-modal-service/card-modal-service.js"></script>
+
+
+    <!--User service-->
+    <script src="components/user/user-service/user-service.js"></script>
+
+    <!--User modal-directive-->
+    <script src="components/user/user-modal-directive/user-modal-directive.js"></script>
+    <script src="components/user/user-modal-service/user-modal-service.js"></script>
+
+    <!-- User directive -->
+    <script src="components/user/user-component/user-directive.js"></script>
+
+    <!--Validator-->
+    <script src="components/validator-service/validator-service.js"></script>
+
+</body>
+</html>

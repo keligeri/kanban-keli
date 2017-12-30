@@ -1,0 +1,88 @@
+body {
+    background-image: url("https://craftburgercromer.co.uk/wp-content/uploads/2016/08/Wood-Background-1-1024x700.jpg");
+}
+
+.page-header {
+    text-indent: 20px;
+    border-bottom: 1px solid #ebebe0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.row {
+    text-align: center;
+}
+
+.users {
+    border-radius: 50%;
+}
+
+#add-button {
+    border-radius: 40%;
+}
+
+.users-container {
+    border-bottom: 3px solid #ebebe0;
+    width: 97%;
+    padding: 10px;
+    margin: 20px;
+}
+
+.users-container img {
+    margin: 10px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 10px 00px 10px 0px;
+}
+
+.card-title {
+    text-align: center;
+    background: 0;
+    border-bottom: asterisks;
+}
+
+.vertical-line {
+    border-left: thick solid graytext;
+}
+
+.col-header {
+    border-left: 3px solid #ebebe0;
+    border-right: 3px solid #ebebe0;
+    height: 60px;
+    color: #ffffe6;
+}
+
+#add-button {
+    float: right;
+    font-size: 28px;
+}
+
+.task-id {
+    margin: 10px 0 10px 0;
+    text-align: left;
+    border-bottom: 1px solid #ebebe0;
+}
+
+.hide {
+    display: none;
+}
+
+.edit-icon {
+    float: right;
+    width: 18px;
+    height: 18px;
+}
+
+.bin-icon {
+    float: right;
+    width: 20px;
+    height: 20px;
+}
+
+.task-users img {
+    margin-bottom: 5px;
+    width: 75px;
+    height: 75px;
+}
