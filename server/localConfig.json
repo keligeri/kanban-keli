@@ -1,8 +1,8 @@
 {
   "development": {
-    "clientId": "{UAA Client ID created}",
-    "uaaURL": "{The UAA URI end point to get auth token }",
-    "base64ClientCredential": "{Get clientID:clientSecret then base64 encode and place it here}",
+    "clientId": "login_client_id",
+    "uaaURL": "https://794e3d93-8a94-4979-89d9-2e1388939b63.predix-uaa.run.aws-usw02-pr.ice.predix.io",
+    "base64ClientCredential": "bG9naW5fY2xpZW50X2lkOmtpc2thY3Nh",
     "appURL": "http://localhost:5000",
     "timeseriesURL": "{Time Series URL from VCAPS}",
     "assetZoneId": "{The Zone ID for the Asset Service Created}",
